@@ -24,7 +24,6 @@ import
     PanelLeftOpen,
     Sun,
     Moon,
-    User as UserIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import
@@ -178,7 +177,7 @@ function AppLayout()
                     </nav>
 
                     {/* ACTION BUTTONS LARGE SCREEN */}
-                    <div className="hidden md:flex flex-col gap-1 p-3 md:pt-5 min-h-screen">
+                    <div className="hidden md:flex flex-col gap-1 p-3 md:pt-5">
                         {/* SIDEBAR TOGGLE */}
                         <Button
                             variant="ghost"
@@ -221,24 +220,12 @@ function AppLayout()
 
                         {/* THEME TOGGLE */}
                         <Button
-                            variant="ghost"
-                            className="gap-3 text-muted-foreground w-full justify-start px-3"
+                            variant="default"
+                            className="px-3 fixed bottom-4 right-4 w-12 h-12"
                             onClick={toggleTheme}
                             title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                         >
-                            {theme === "dark" ? (
-                                <Sun className="h-4 w-4 shrink-0" />
-                            ) : (
-                                <Moon className="h-4 w-4 shrink-0" />
-                            )}
-                            <span
-                                className={cn(
-                                    "whitespace-nowrap transition-opacity duration-200",
-                                    !sidebarOpen && "opacity-0",
-                                )}
-                            >
-                                {theme === "dark" ? "Light mode" : "Dark mode"}
-                            </span>
+                            {theme === "dark" ? (<Sun className="w-6! h-6!" />) : (<Moon className="w-6! h-6!" />)}
                         </Button>
                     </div>
                 </div>
